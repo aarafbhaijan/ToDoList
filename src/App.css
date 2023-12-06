@@ -79,6 +79,9 @@ h1 {
   cursor: pointer;
 }
 
+.selected{
+  background-color: #dc2b2b !important
+}
 .completed {
   /* color: #c5aeff; */
   text-decoration: line-through;

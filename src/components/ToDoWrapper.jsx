@@ -5,6 +5,7 @@ import Todo from "./Todo";
 
 const ToDoWrapper = () => {
   const [todos, setTodos] = useState([]);
+  const [selectedId, setSelectedId] = useState(null);
   const addTodo = (todo) => {
     if (todo !== "") {
       setTodos([
@@ -33,10 +34,18 @@ const ToDoWrapper = () => {
       <TodoForm addTodo={addTodo} />
       {todos.map((todo, ind) => (
         <Todo
+          selected={selectedId === todo.id}
           task={todo}
           key={ind}
           toggleComplete={toggleComplete}
           deleteTodo={deleteTodo}
+          onClick={() => {
+            if(selectedId===todo.id){
+              setSelectedId(null)
+            }else{
+              setSelectedId(todo.id)
+            }
+          }}
         />
       ))}
     </div>
